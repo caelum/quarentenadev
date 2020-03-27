@@ -1,6 +1,7 @@
 html {
   --fundo-pagina: rgb(91, 194, 212);
   --fundo-conteudo: rgba(255, 255, 255,.75);
+  --icone: "🔥";
 }
 
 
@@ -23,12 +24,6 @@ html {
   color: var(--fundo-pagina);
   
   background-color: currentColor;
-}
-
-html {
-  --fundo-pagina: rgb(91, 194, 212);
-  --fundo-conteudo: rgba(255, 255, 255,.75);
-  --icone: "🔥";
 }
 
 * {
