@@ -13,17 +13,35 @@ html {
 }
 
 html {
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
+  width: 100vw;
   
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
   align-items: center;
   
   color: rgb(91, 194, 212);
   color: var(--fundo-pagina);
   
   background-color: currentColor;
+}
+
+html:before {
+  content: "#quarentenaDev";
+    
+  width: 100vw;
+  height: 1em;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin: .25em 0 .75em;
+  
+  text-align: center;
+  
+  font-family: monospace;
+  font-size: 30px;
+  color: rgba(255,255,255, .55);
 }
 
 * {
