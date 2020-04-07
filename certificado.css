@@ -1,0 +1,150 @@
+* {
+  font-family: monospace;
+  max-width: 100%;
+  box-sizing: border-box;
+  
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  display: flex;
+  padding: 1em;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: rgb(91, 194, 212);
+}
+
+body {
+  
+  width: 25em;
+  
+  max-width: 90%;
+  
+  font-size: 1.5em;
+  padding: 1em;
+  
+  border: 1px solid lightgrey;
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,.25);
+  background: white;
+}
+
+body:not(.paginaCertificado) h1 {
+  margin-top:1em;
+  margin-bottom:0;
+}
+
+body:not(.paginaCertificado) strong {
+  display: inline-block;
+  padding: 0.3125em 0.3125em 0.125em;
+  
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: .52em;
+  margin-bottom: 2em;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  
+  color: #fff;
+  background: #fda53d;
+}
+
+body:not(.paginaCertificado) label {
+  position: absolute;
+  display: block;
+  font-size: 1em;
+  line-height: 2em;
+}
+
+body:not(.paginaCertificado) input {
+  display: block;
+  padding: .5em 1em .5em 4em;
+  
+  font-size: 1em;
+  font-weight: lighter;
+  font-family: inherit;
+  
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,.25);
+    
+  transition: all .2s ease, background-size .45s ease-out;
+  background: linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.25)
+  ) no-repeat 0% 100% / 0 0;
+}
+
+body:not(.paginaCertificado) input:focus {
+  outline: none;
+  background: linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.25)
+  ) no-repeat 0% 100% / 100% 1px;
+}
+
+body:not(.paginaCertificado) button {
+  border: none;
+  padding: 1em;
+  margin-top: 3em;
+    
+  font-size: .75em;
+  text-transform: uppercase;
+
+  border: 2px solid rgba(0, 0, 0, .15);
+  background-color: #27bdc1;
+  color: white;
+}
+
+body:not(.paginaCertificado) button:not(:disabled) {
+  cursor: pointer;
+}
+
+body:not(.paginaCertificado) button:hover:not(:disabled) {
+    background-image: linear-gradient(
+      rgba(255,255,255,0.25),
+      rgba(255,255,255,0.25)
+    );
+
+}
+
+body:not(.paginaCertificado) button:active:not(:disabled) {
+  background-image: linear-gradient(
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.15)
+  );
+  transform: scale(0.98)
+}
+
+body:not(.paginaCertificado) button:disabled {
+  background-color: #cacaca;
+}
+
+
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 0;
+    size: A4 landscape;
+  }
+  
+  html {
+    background: none;
+  }
+  
+  .paginaCertificado {
+      max-width: 2048px;
+      max-height: 1515px;
+  }
+}
+
+.paginaCertificado {
+  max-height: 100%;
+  
+  width: 90vw;
+  height: 66.6vw;
+  
+  font-size: 3.5vw;
+}
