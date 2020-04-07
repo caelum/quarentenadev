@@ -20,7 +20,7 @@ function emitirCertificado(nome = "") {
   }
   else if(contadorEmitir < 10) {
     contadorTimeout = setTimeout(function() {
-      alert(`Boa! Mas você precisa chamar essa funcão 1 milhão de vezes.\nVocê chamou já chamou a função ${contadorEmitir} ${
+      alert(`Boa! Mas você precisa chamar essa funcão 1 milhão de vezes.\nVocê já chamou a função ${contadorEmitir} ${
           contadorEmitir == 1 ? 'vez' : 'vezes'
         }.\nFaltam ${ numeroChamadas - contadorEmitir}!`)
        contadorEmitir = 0
