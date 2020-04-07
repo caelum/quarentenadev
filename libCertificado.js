@@ -55,10 +55,11 @@ function emitirCertificado(nome = "") {
           h1 {
             padding-top: 1em;
 
-            background-color: #AAEEFF;
-            border-bottom: 2px solid orange;
             line-height: .7;
 
+            border-bottom: 2px solid orange;
+            background-color: #4a535a;
+            color: white;
             margin-bottom: .25em;
             font-weight: lighter;
             font-family: 'Helvetica';
