@@ -118,15 +118,7 @@ function emitirCertificado(nome = "") {
           </p>
 
           <h2> Códigos feitos: </h2>
-          <ol>
-            ${
-              codigos
-                .map((item, posicao) => `
-                  <li> ${nomesAulas[posicao]}: ${item} </li>
-                `)
-                .join('\n')
-            }
-          </ol>
+         
       `
     }
   }
