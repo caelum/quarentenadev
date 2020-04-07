@@ -46,20 +46,21 @@ function emitirCertificado(nome = "") {
       
       return `
         <style>
+         @import "https://caelum.github.io/quarentenadev/certificado.css?";
+
           body {
             text-align: center;
             color: #525f6b;
-          } 
+          }
 
 
           h1 {
             padding-top: 1em;
 
-            line-height: .7;
-
             border-bottom: 2px solid orange;
-            background-color: #4a535a;
-            color: white;
+
+          /*   background-color: #4a535a; */
+            color: #4a535a;
             margin-bottom: .25em;
             font-weight: lighter;
             font-family: 'Helvetica';
@@ -85,6 +86,8 @@ function emitirCertificado(nome = "") {
             font-size: .75em;
             text-transform: uppercase;
             margin-top: 2em;
+
+            color: #48CCCA;
           }
 
           ol {
@@ -94,6 +97,18 @@ function emitirCertificado(nome = "") {
             font-size: .5em;
             margin-top: 1em;
           }
+
+          div {
+            width: 9rem;
+            height: 9rem;
+            line-height: 9rem;
+
+            font-size: .3em;
+            display: block;
+            margin: auto;
+            border: 1px solid #999;
+          }
+
         </style>
 
          <h1> ${nome} </h1>
