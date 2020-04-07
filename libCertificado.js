@@ -29,6 +29,89 @@ function emitirCertificado(nome = "") {
 
   if(contadorEmitir >= numeroChamadas) {
     contadorEmitir = 0
-    confirm(`Parabéns${nome !== "" ? ' ' + nome : ''}!\nVocê concluiu a #quarentenaDev =D\nContinuar para o certificado?`) 
+    if(
+      !confirm(`Parabéns${nome !== "" ? ' ' + nome : ''}!\nVocê concluiu a #quarentenaDev =D\nContinuar para o certificado?`) 
+    ){
+      document.documentElement.classList.remove('paginaCertificado')
+    } else {
+      document.documentElement.classList.add('paginaCertificado')
+      
+      var nomesAulas = {
+        0: 'Calculadora de dias vividos',
+        1: 'Calculadora de app de transporte',
+        2: 'Currículo',
+        3: 'Ficha da academia',
+        4: 'Certificado'
+      }
+      
+      return `
+        <style>
+          body {
+            text-align: center;
+            color: #525f6b;
+          } 
+
+
+          h1 {
+            padding-top: 1em;
+
+            background-color: #AAEEFF;
+            border-bottom: 2px solid orange;
+            line-height: .7;
+
+            margin-bottom: .25em;
+            font-weight: lighter;
+            font-family: 'Helvetica';
+          }
+
+          p {
+            font-size: .75em;
+          }
+
+
+          strong {
+            background: orange;
+            color: white;
+
+            padding: 2px 5px;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: normal;
+          }
+
+          h2 {
+            font-size: .75em;
+            text-transform: uppercase;
+            margin-top: 2em;
+          }
+
+          ol {
+            text-align: left;
+            list-style-position: inside;
+            padding: 2em;
+            font-size: .5em;
+            margin-top: 1em;
+          }
+        </style>
+
+         <h1> ${nome} </h1>
+
+          <p>
+            participou da <strong> #quarentenaDev </strong>
+          </p>
+
+          <h2> Códigos feitos: </h2>
+          <ol>
+            ${
+              codigos
+                .map((item, posicao) => `
+                  <li>${nomesAulas[posicao]}: ${item} </li>
+                `)
+                .join('\n')
+            }
+          </ol>
+      `
+    }
   }
 }
