@@ -122,7 +122,7 @@ function emitirCertificado(nome = "") {
             ${
               codigos
                 .map((item, posicao) => `
-                  <li> <a href="${item}">${nomesAulas[posicao]}</a> </li>
+                  <li> ${nomesAulas[posicao]}: ${item} </li>
                 `)
                 .join('\n')
             }
