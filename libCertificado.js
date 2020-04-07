@@ -9,7 +9,8 @@ function emitirCertificado(nome = "") {
   if(contadorEmitir == 1) {
      contadorTimeout = setTimeout(function() {
       alert(`
-        No seu código, chame emitirCertificado() novamente!
+        Achou que ia ser fácil?
+        Chame a função emitirCertificado() de novo lá no seu código!
       `)
        contadorEmitir = 0
     }, 1000)
@@ -17,7 +18,8 @@ function emitirCertificado(nome = "") {
   else if(contadorEmitir == 2) {
     contadorTimeout = setTimeout(function() {
       alert(`
-        Ainda não! Chame emitirCertificado() mais uma vez no seu código!
+        Ainda não! 
+        Chame emitirCertificado() mais uma vez no seu código!
       `)
        contadorEmitir = 0
     }, 1000)
@@ -25,10 +27,10 @@ function emitirCertificado(nome = "") {
   else if(contadorEmitir < 10) {
     contadorTimeout = setTimeout(function() {
       alert(`
-        Você chamou a função apenas ${contadorEmitir} ${
+        Boa! Mas você precisa chamar essa funcão 1 milhão de vezes.
+        Você chamou já chamou a função ${contadorEmitir} ${
           contadorEmitir == 1 ? 'vez' : 'vezes'
         }. 
-        Você precisa chamar essa funcão 1 milhão de vezes.
         Faltam ${ numeroChamadas - contadorEmitir}!
       `)
        contadorEmitir = 0
