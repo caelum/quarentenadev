@@ -44,7 +44,7 @@ function emitirCertificado(nome = "") {
         4: 'Certificado'
       }
       
-      return `
+      document.body.innerHTML = `
         <style>
          @import "https://caelum.github.io/quarentenadev/certificado.css?";
 
