@@ -13,12 +13,9 @@ html {
   height: 100%;
   justify-content: center;
   align-items: center;
+  overflow: auto;
   
   background-color: rgb(91, 194, 212);
-}
-
-html.paginaCertificado {
-  background: whitesmoke;
 }
 
 body {
@@ -33,11 +30,6 @@ body {
   border: 1px solid lightgrey;
   box-shadow: 2px 2px 5px 0px rgba(0,0,0,.25);
   background: white;
-}
-
-html.paginaCertificado body {
-  padding: 0;
-  border: none;
 }
 
 html:not(.paginaCertificado) h1 {
@@ -131,6 +123,23 @@ html:not(.paginaCertificado) button:disabled {
 }
 
 
+html.paginaCertificado {
+  background: whitesmoke;
+}
+
+html.paginaCertificado body {
+  padding: 0;
+  padding-bottom: 1.7em;
+  max-height: 100%;
+  width: 90vw;
+  height: 66.6vw;
+  
+  font-size: 3.5vw;
+  
+  border: none;
+}
+
+
 
 @media print {
   @page {
@@ -147,13 +156,4 @@ html:not(.paginaCertificado) button:disabled {
       max-width: 2048px;
       max-height: 1515px;
   }
-}
-
-html.paginaCertificado body{
-  max-height: 100%;
-  
-  width: 90vw;
-  height: 66.6vw;
-  
-  font-size: 3.5vw;
 }
