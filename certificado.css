@@ -127,19 +127,18 @@ html.paginaCertificado {
   background: whitesmoke;
 }
 
+
 html.paginaCertificado body {
   padding: 0;
   padding-bottom: 1.7em;
   max-height: 100%;
-  width: 90vw;
-  height: 66.6vw;
+  width: 25.7em;
+  height: 18.03em;
   
-  font-size: 3.5vw;
+  font-size: 3.5vmin;
   
   border: none;
 }
-
-
 
 @media print {
   @page {
@@ -155,5 +154,6 @@ html.paginaCertificado body {
   html.paginaCertificado body {
       max-width: 2048px;
       max-height: 1515px;
+      font-size: 3.5vw;
   }
 }
