@@ -59,7 +59,7 @@ function emitirCertificado(nome = "") {
 }
 
 var HTMLCertificado = nome => `
-  <h1> </h1>
+  <h1>${nome}</h1>
 
   <p>
     participou da <a target="_blank" href="https://www.alura.com.br/quarentenadev">quarentenaDev </a>
