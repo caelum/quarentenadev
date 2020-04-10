@@ -3,11 +3,6 @@ var contadorTimeout = null
 var contadorLoopInfinito = 0
 
 function emitirCertificado(nome) {
-  
-  if (nome === "" || nome === undefined) {
-    nome = "[nome está vazio]"
-  }
-  
   clearTimeout(contadorTimeout)
   
   var numeroChamadas = 1000000
@@ -51,6 +46,10 @@ function emitirCertificado(nome) {
        ) 
      
       return
+    }
+
+    if (nome === "" || nome === undefined) {
+      nome = "[nome está vazio]"
     }
     
     if(
