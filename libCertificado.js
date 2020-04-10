@@ -1,6 +1,13 @@
 var contadorEmitir = 0
 var contadorTimeout = null
-function emitirCertificado(nome = "") {
+var contadorLoopInfinito = 0
+
+function emitirCertificado(nome) {
+  
+  if (nome === "" || nome === undefined) {
+    nome = "[nome está vazio]"
+  }
+  
   clearTimeout(contadorTimeout)
   
   var numeroChamadas = 1000000
@@ -8,41 +15,60 @@ function emitirCertificado(nome = "") {
   
   if(contadorEmitir == 1) {
      contadorTimeout = setTimeout(function() {
-      alert(`Achou que ia ser fácil?\nChame a função emitirCertificado() de novo lá no seu código!`)
+      alert(
+        `Achou que ia ser fácil?\nChame a função emitirCertificado() de novo lá no seu código!`
+      )
        contadorEmitir = 0
     }, 1000)
   }
   else if(contadorEmitir == 2) {
     contadorTimeout = setTimeout(function() {
-      alert(`Ainda não!\nChame emitirCertificado() mais uma vez no seu código!`)
+      alert(
+        `Ainda não!\nChame emitirCertificado() mais uma vez no seu código!`
+      )
        contadorEmitir = 0
     }, 1000)
   }
   else if(contadorEmitir < 10) {
     contadorTimeout = setTimeout(function() {
-      alert(`Boa! Mas você precisa chamar essa funcão 1 milhão de vezes.\nVocê já chamou a função ${contadorEmitir} ${
+      alert(
+        `Boa! Mas você precisa chamar essa funcão 1 milhão de vezes.\nVocê já chamou a função ${contadorEmitir} ${
           contadorEmitir == 1 ? 'vez' : 'vezes'
-        }.\nFaltam ${ numeroChamadas - contadorEmitir}!`)
+        }.\nFaltam ${ numeroChamadas - contadorEmitir}!`
+      )
        contadorEmitir = 0
     }, 1000)
   }
 
   if(contadorEmitir >= numeroChamadas) {
     contadorEmitir = 0
+    contadorLoopInfinito = contadorLoopInfinito + 1
+
+    
+    if(contadorLoopInfinito > 1) {
+      !alert(
+        `Loop Inifinito!\nVocê chamou a função emitirCertificado() ${contadorLoopInfinito} ${(contadorLoopInfinito == 1)  ? 'milhão' : 'milhões'} de vezes`
+       ) 
+     
+      return
+    }
+    
     if(
-      !confirm(`Parabéns${nome !== "" ? ' ' + nome : ''}!\nVocê concluiu a #quarentenaDev =D\nContinuar para o certificado?`) 
+      !confirm(
+        `Parabéns ${nome}!\nVocê concluiu a #quarentenaDev =D\nContinuar para o certificado?`
+      ) 
     ){
       document.documentElement.classList.remove('paginaCertificado')
     } else {
       document.documentElement.classList.add('paginaCertificado')
-      
-      var nomesAulas = {
-        0: 'Calculadora de dias vividos',
-        1: 'Calculadora de app de transporte',
-        2: 'Currículo',
-        3: 'Ficha da academia',
-        4: 'Certificado'
-      }
+
+      document.body.innerHTML = `
+        Sucesso! 
+        <br>
+        Agora só falta colocar o HTML do certificado na tela.
+        <br>
+        Esse HTML foi retornado pela função emitirCertificado()
+     `
       
       return `
         <style>
