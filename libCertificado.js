@@ -210,6 +210,10 @@ var CSSCertificado = () => `
     font-size: .5em;
   }
 
+  li {
+    break-inside: avoid;
+  }
+
   li + li {
     margin-top: .25em;
   }
