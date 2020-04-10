@@ -85,8 +85,6 @@ var HTMLCertificado = nome => `
 `
 
 var CSSCertificado = () => `
-  @import "https://caelum.github.io/quarentenadev/certificado.css?";
-
   html {
     overflow: auto;
   }
