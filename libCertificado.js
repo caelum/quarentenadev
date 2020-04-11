@@ -1,84 +1,88 @@
-var contadorEmitir = 0
+
+var contadorDeChamadas = 0
 var contadorTimeout = null
-var contadorLoopInfinito = 0
+var contadorDeEmissoesDeCertificado = 0
 
 function emitirCertificado(nome) {
+  contadorDeChamadas = contadorDeChamadas + 1
+
   clearTimeout(contadorTimeout)
+  const numeroChamadas = 1000000
   
-  var numeroChamadas = 1000000
-  contadorEmitir = contadorEmitir + 1
-  
-  if(contadorEmitir == 1) {
-     contadorTimeout = setTimeout(function() {
-      alert(
-        `Achou que ia ser fácil?\nChame a função emitirCertificado() de novo lá no seu código!`
-      )
-       contadorEmitir = 0
-    }, 1000)
-  }
-  else if(contadorEmitir == 2) {
-    contadorTimeout = setTimeout(function() {
-      alert(
-        `Ainda não!\nChame emitirCertificado() mais uma vez no seu código!`
-      )
-       contadorEmitir = 0
-    }, 1000)
-  }
-  else if(contadorEmitir < 10) {
-    contadorTimeout = setTimeout(function() {
-      alert(
-        `Boa! Mas você precisa chamar essa funcão 1 milhão de vezes.\nVocê já chamou a função ${contadorEmitir} ${
-          contadorEmitir == 1 ? 'vez' : 'vezes'
-        }.\nFaltam ${ numeroChamadas - contadorEmitir}!`
-      )
-       contadorEmitir = 0
-    }, 1000)
-  }
-
-  if(contadorEmitir >= numeroChamadas) {
-    contadorEmitir = 0
-    contadorLoopInfinito = contadorLoopInfinito + 1
-
+  if(contadorDeChamadas < numeroChamadas && contadorDeEmissoesDeCertificado == 0) {
     
-    if(contadorLoopInfinito > 1) {
-      !alert(
-        `Loop Inifinito!\nVocê chamou a função emitirCertificado() ${contadorLoopInfinito} ${(contadorLoopInfinito == 1)  ? 'milhão' : 'milhões'} de vezes`
-       ) 
-     
-      return
-    }
-
-    if (nome === "" || nome === undefined) {
-      nome = "[nome está vazio]"
-    }
+      let mensagemTimeout
     
-    if(
-      !confirm(
-        `Parabéns ${nome}!\nVocê concluiu a #quarentenaDev =D\nContinuar para o certificado?`
-      ) 
-    ){
-      document.documentElement.classList.remove('paginaCertificado')
-    } else {
+      if(contadorDeChamadas == 1) {
+        mensagemTimeout = `Achou que ia ser fácil?\nChame a função emitirCertificado() de novo lá no seu código!`
+      }
+      else if(contadorDeChamadas == 2) {
+        mensagemTimeout = `Ainda não!\nChame emitirCertificado() mais uma vez no seu código!`
+      }
+      else if(contadorDeChamadas < 100){
+        mensagemTimeout = 
+          `Boa! Mas você precisa chamar essa funcão 1 milhão de vezes.\nVocê já chamou a função ${contadorDeChamadas} ${
+            contadorDeChamadas == 1 ? 'vez' : 'vezes'
+           }.\nFaltam ${ numeroChamadas - contadorDeChamadas}!`
+      }
+    
+      if(mensagemTimeout !== undefined) {
+        contadorTimeout = setTimeout(function() {
+          alert(mensagemTimeout)
+          contadorDeChamadas = 0
+        }, 1000)
+      }
+
+  } else {
+    
+      nome = nome === "" || nome === undefined
+        ? "[nome está vazio]"
+        : nome
+
+      const __certificado = `
+        <style>
+        ${ CSSCertificado() }
+        </style>
+
+        ${ spriteLogosCertificado }
+
+        ${ HTMLCertificado(nome) }
+
+      `
+
+    if(contadorDeEmissoesDeCertificado > 0 && contadorDeChamadas > numeroChamadas) {      
+      const totalChamadasLoopInfinito = contadorDeEmissoesDeCertificado * numeroChamadas + contadorDeChamadas
+      alert(
+        `Loop Inifinito!\nVocê chamou a função emitirCertificado() ${totalChamadasLoopInfinito} vezes`
+       )
+      return __certificado
+    } 
+    else if(contadorDeEmissoesDeCertificado == 0 && contadorDeChamadas >= numeroChamadas) {
+      contadorDeEmissoesDeCertificado = contadorDeEmissoesDeCertificado + 1
+      contadorDeChamadas = 0
       document.documentElement.classList.add('paginaCertificado')
 
-      document.body.innerHTML = `
+      document.body.querySelectorAll('*').forEach(
+        elemento => elemento.style.display = 'none'
+      )
+
+      const divMensagem = document.createElement('div')
+      divMensagem.innerHTML = `
         Sucesso! 
         <br>
         Agora só falta colocar o HTML do certificado na tela.
         <br>
         Esse HTML foi retornado pela função emitirCertificado()
-     `
-      
-      return `
-        <style>
-          ${ CSSCertificado() }
-        </style>
-
-        ${ spriteLogosCertificado }
-
-         ${ HTMLCertificado(nome) }
-          
       `
+      document.body.appendChild(divMensagem)
+      alert(
+        `Parabéns ${nome}!\nVocê concluiu a #quarentenaDev =D\nContinuar para o certificado?`
+      )
+
+      return __certificado
+    }
+    else if(contadorDeEmissoesDeCertificado > 0 && contadorDeChamadas <= numeroChamadas) {
+      return __certificado
     }
   }
 }
