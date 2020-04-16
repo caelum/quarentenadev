@@ -1,5 +1,5 @@
 
-var contadorDeChamadas = 0
+var contadorDeChamadas = 0;
 var contadorTimeout = null
 var contadorDeEmissoesDeCertificado = 0
 
